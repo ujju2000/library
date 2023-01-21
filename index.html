@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body>
+    <aside>
+        <div class="title">
+            <div class="logo">
+                <span class="material-icons">
+                    library_books
+                </span>
+                
+            </div>
+            <div class="heading">
+                LIBRARY
+            </div>
+        </div>
+
+        <form action="">
+            <div class="input-block">
+                <input type="text" name="" id="title" autocomplete="off" required>
+                <span class = "placeholder"> What is the title of the book?</span>
+            </div>
+
+            <div class="input-block">   
+                <input type="text" name="" id="name" autocomplete="off" required>
+                <span class = "placeholder"> What is the author of the book?</span>
+            </div>
+
+            <div class="input-block">
+                <input type="text" name="" id="noOfPages" autocomplete="off" required>
+                <span class = "placeholder">How many pages are in the book ?</span>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" name="status" id="">
+                <span>I have read this book!</span>
+            </div>
+           
+            <button class  = "btn">
+                Add a new book 
+            </button>
+        </form>
+
+        <footer>
+            >> Crafted By :- Ujjwal Tarika << 
+        </footer>
+    </aside>
+
+    <main id = "library-content">   
+        <div id="library-info">
+            <p>BOOKS READ : <span id="books-read"></span></p>
+            <p>BOOKS UNREAD: <span id="books-unread" ></span></p>
+            <p>TOTAL BOOKS : <span id = "total-books"></span></p>
+            <button id="delete-all-btn">DELETE ALL</button>
+        </div>
+
+        <table id="books-list">
+            <thead id="books-requirement">
+                <tr>
+                    <td>TITLE</td>
+                    <td>AUTHOR</td>   
+                    <td>PAGES</td>
+                    <td>STATUS</td>
+                    <td>REMOVAL</td>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                
+            </tbody>
+        </table>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

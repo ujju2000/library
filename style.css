@@ -1,0 +1,186 @@
+*{
+    margin : 0px;
+    padding :0px;
+    box-sizing: border-box;
+}
+body {
+    
+    display : grid;
+    grid-template-columns: 400px 1fr;
+}
+aside {
+    height : 100vh;
+    background-color: rgb(246, 209, 215);
+}
+
+main {
+    height : 100vh;
+    background-color: rgb(172, 226, 226);
+}
+/* inside aside  */
+
+.title {
+    height : 100px;
+    width : 80%;
+    display:  flex;
+    margin: 20px 20px;
+    justify-content :space-around;
+    align-items: center;
+}
+
+.logo .material-icons {
+    font-size : 30px;
+}
+
+.heading {
+    font-size: 40px;
+    margin-left: 30px;
+    font-family: 'Bungee Spice', cursive;
+}
+input {
+    width : 90%;
+    border : none;
+    background : transparent;
+    border-bottom: 2px dotted black ;
+    outline : none;
+}
+
+input:focus {
+    border-bottom: 2px dotted white;
+}
+
+.input-block {
+    position : relative;
+    padding : 30px;
+}
+.placeholder {
+    position : absolute;
+    margin : 17px 20px;
+    left : 10px;   
+    top : 5px;
+    transition : all .3s;
+    transform-origin: 0% 0%;
+    pointer-events: none;
+    font-size  : 20px;
+}
+
+.input-block input:focus + .placeholder{
+    transform: scale(0.8) translateY(-30px);
+}
+
+/* checkbox */
+
+.checkbox {
+    margin : auto;
+    height : 20px;
+    width : 80%;
+    /* background-color: aquamarine; */
+    display : flex; 
+    /* justify-content: space-between; */
+    align-items: center;
+    font-size: 20px;
+}
+.checkbox input {
+    height : 20px;
+    width : 20px;
+    width : auto;
+    margin-right : 30px;
+}
+
+.btn {
+    height : 70px;
+    width : 50%;
+    background-color: rgb(33, 33, 100);
+    color : white;
+    margin : 50px;
+    text-transform: uppercase;
+    outline : none;
+    border : none;
+    border-radius: 10px;
+    font-size : 15px;
+    letter-spacing: 0.3px;
+    cursor : pointer;
+    transition : .3s;
+}
+.btn:hover {
+    background-color: rgb(12, 12, 168);
+    transition : .3s;   
+}
+
+footer {
+    height : 50px;
+    width : 100%;
+    position: absolute;
+    bottom : 0;
+    margin : 10px;
+    padding : 30px;
+    text-transform: uppercase;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+main {
+    background-color : white;
+}
+
+
+#library-content {
+    display : flex;
+    align-items: center;
+    flex-direction: column;
+    width : calc(100% -360px);
+    padding : 30px;
+}
+
+#library-info {
+    display : flex;
+    justify-content: space-around;
+    align-items: center;
+    width : 70%;
+    margin-bottom: 30px;
+    padding: 0px 25px;
+    font-size: 18px;
+    
+}
+#delete-all-btn {
+    width : 150px;
+    border : 1px solid red;
+    border-radius: 2px;
+    background-color: rgb(190, 38, 38);
+    color : white;
+    transition : .3s;
+    height : 50px;
+    outline : none;
+    
+}
+
+#delete-all-btn:hover {
+    cursor : pointer;
+    border-color : rgb(145, 1, 1);
+    background-color: rgb(180, 2, 2);
+}
+
+/* table style  */
+
+#books-list {
+    width : 70%;
+    border-collapse: collapse;
+}
+
+#books-list td {
+    padding : 25px;
+}
+#books-requirement {
+    background-color: darkblue;
+    color : white;
+
+}
+
+.books-info {
+    border-bottom: 2px dotted lightblue;
+}
+.books-info i {
+    padding : 5px;
+    font-size: 20px;
+}
+
+
