@@ -64,7 +64,8 @@ input:focus {
     font-size  : 20px;
 }
 
-.input-block input:focus + .placeholder{
+.input-block input:focus + .placeholder,
+.input-block input:valid + .placeholder {
     transform: scale(0.8) translateY(-30px);
 }
 
@@ -175,12 +176,13 @@ main {
 
 }
 
-.books-info {
+.book-info {
     border-bottom: 2px dotted lightblue;
+    font-size : 25px;
 }
-.books-info i {
+.book-info span {
     padding : 5px;
-    font-size: 20px;
+    
 }
 
 
