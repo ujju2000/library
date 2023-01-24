@@ -10,15 +10,17 @@ body {
 }
 aside {
     height : 100vh;
-    background-color: rgb(246, 209, 215);
+    background-color: rgb(221, 180, 187);
 }
 
 main {
     height : 100vh;
-    background-color: rgb(172, 226, 226);
+    background-color: rgb(217, 238, 238);
 }
 /* inside aside  */
-
+.material-icons {
+    cursor : pointer;
+}
 .title {
     height : 100px;
     width : 80%;
@@ -64,8 +66,8 @@ input:focus {
     font-size  : 20px;
 }
 
-.input-block input:focus + .placeholder,
-.input-block input:valid + .placeholder {
+.input-block input:valid + span,
+.input-block input:focus + span {
     transform: scale(0.8) translateY(-30px);
 }
 
@@ -130,6 +132,7 @@ main {
     flex-direction: column;
     width : calc(100% -360px);
     padding : 30px;
+    background-color: rgb(229, 229, 244);
 }
 
 #library-info {
@@ -186,3 +189,9 @@ main {
 }
 
 
+.clear {
+    color : red;
+}
+.done {
+    color : green;
+}

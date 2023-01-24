@@ -10,27 +10,71 @@ class Book {
 }
 
 function listenClicks(){
-    document.addEventListener('click' , (event) =>{
+    
+    document.addEventListener('click' , (event) =>{ 
         const {target} = event;
-        const idx = target.parentNode.rowIndex -1;
-
+        const idx = target.parentNode.parentNode.rowIndex - 1;
+        console.log(target)
         if(target.id == "add-book") {
             validateForm(event);
         }
+        else if(target.classList.contains("clear")){
+            // library status == clear == false
+            target.classList.remove("clear");
+            target.classList.add("done");
+            target.textContent = "done";
+            
+            library[idx].status = true;
+        }   
+        else if(target.classList.contains('done')){
+            // library status == done == true
+            target.classList.remove("done");
+            target.classList.add("clear");
+            target.textContent = "clear";
+            library[idx].status = false;
+        }
+        else if(target.classList.contains("delete-btn")){
+            target.parentNode.remove();
+            library.splice(idx,1);
+            showlibraryInfo();
+        }
+        
+        else if(target.id == 'delete-all-btn'){
+            manipulateModel(event);
+        }
+        showBooksInLibrary();
     })
 }
+// get books from local storage 
+if(localStorage.getItem('books') == null) {
+    library = [];
+} 
+else {
+    const bookfromStorage = JSON.parse(localStorage.getItem('books'));
+    library = bookfromStorage;
+}
+showBooksInLibrary();
 listenClicks();
+
+// manipulate Model 
+function manipulateModel(event){
+    // modal click 
+    const booksList = document.querySelector('#table-body');
+    booksList.textContent = '';
+    library = [];
+}
 // FORM VALIDATION 
 function validateForm(event){
     event.preventDefault(); // default action wiill be prevented
     const form = document.querySelector('form');
-    const titleInput = document.querySelector('#title');
-    const nameInput = document.querySelector('#name');
-    const numInput = document.querySelector('#number');
+    const titleInput = document.querySelector('#title').value;
+    const nameInput = document.querySelector('#name').value;
+    const numInput = document.querySelector('#number').value;
     const checkbox = document.querySelector('input[name = "status"]');
-
+    console.log(titleInput);
     if(titleInput == "" || titleInput == " "){
         alert('please fill the title');
+        
         return;
     }
     if(nameInput == '' || nameInput == " "){
@@ -43,8 +87,8 @@ function validateForm(event){
     }
 
     if(checkbox.checked) {
-        addBookToLibrary(titleInput.value,nameInput.value,numInput.value,true);
-    }else addBookToLibrary(titleInput.value,nameInput.value,numInput.value,false);
+        addBookToLibrary(titleInput,nameInput,numInput,true);
+    }else addBookToLibrary(titleInput,nameInput,numInput,false);
 
     form.reset();
 }
@@ -74,6 +118,8 @@ function  showlibraryInfo(){
 }
 function showBooksInLibrary(){
         // save books in local storage
+        localStorage.setItem('books',JSON.stringify(library));
+        showlibraryInfo();
 
         const booksList = document.querySelector('#table-body');
         booksList.textContent = '';
@@ -104,8 +150,12 @@ function showBooksInLibrary(){
             statusSymbol.classList.add('material-icons');
             if(library[i].status == false){
                 statusSymbol.textContent = "clear";
+                statusSymbol.classList.add('clear');
                 
-            }else statusSymbol.textContent = "done";
+            }else {
+                statusSymbol.textContent = "done";
+                statusSymbol.classList.add('done');
+            }
             bookStatus.appendChild(statusSymbol);
             bookRow.appendChild(bookStatus);
 
@@ -115,7 +165,7 @@ function showBooksInLibrary(){
             deleteSymbol.textContent = "delete";
             deleteSymbol.classList.add('material-icons');
             bookDelete.appendChild(deleteSymbol);
-
+            deleteSymbol.classList.add("delete-btn");
             bookRow.appendChild(bookDelete);
         }
 
